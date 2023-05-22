@@ -1,0 +1,47 @@
+.space1 {
+  width: 100vw;
+  height: 65px;
+  display: block;
+  text-align: center;
+  font-size: 26px;
+  /* color: #474747; */
+  /* line-height: 1.2; */
+  position: relative;
+  margin: 50px 0px;
+}
+.space1 h1 {
+  position: absolute;
+  left: 44vw;
+  top: 15px;
+  /* line-height: 1.2; */
+  color: rgb(214, 154, 75);
+  font-size: 2vw;
+}
+.space1 h2 {
+  position: absolute;
+  left: 45vw;
+  top: 50px;
+  /* line-height: 1.2; */
+  color: rgb(66, 66, 65);
+  font-size: 1.2vw;
+}
+.space1 h2:hover {
+  color: rgb(239, 208, 131);
+}
+.s1,
+.s2 {
+  position: absolute;
+  display: block;
+  width: 483px;
+  /* width: 32vw; */
+  height: 100%;
+  top: 10px;
+}
+.s1 {
+  left: 6vw;
+  background: url(../images/spaceleft1.png) no-repeat right center;
+}
+.s2 {
+  right: 6vw;
+  background: url(../images/spaceright.png) no-repeat right center;
+}

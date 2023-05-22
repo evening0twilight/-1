@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: "STKAITI";
+  /* 文字不可选中 */
+  -webkit-user-select: none; /* Chrome / Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+.cup-list {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  width: 100%;
+  /* background-color: #e8e3d1; */
+  background: url(../images/bg.jpg) no-repeat center center/100% auto;
+}
+.list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin: 40px auto 0;
+  max-width: 1600px;
+}
+.list .item {
+  width: 33.33%;
+  position: relative;
+  text-align: center;
+}
+.list .item a {
+  padding: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+.list .item .bg {
+  content: "";
+  background: url(../images/旋转.png) no-repeat center center/80% auto;
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: -20%;
+  padding-top: 100%;
+  -webkit-animation: ro 14s linear 0s infinite;
+  animation: ro 14s linear 0s infinite;
+  display: none;
+}
+@keyframes ro {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.list .item .pic img {
+  max-width: 50%;
+  max-height: 60%;
+}
+
+.list .item .h {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  font-size: 24px;
+  margin-top: 1.5em;
+  position: relative;
+}
+.list .item:hover .bg {
+  display: block;
+}
+.breadcrumb {
+  margin: 10px 30px;
+  z-index: 999;
+}
+.item a {
+  color: #474747;
+}
+.item a:hover {
+  color: rgb(254, 182, 0);
+  text-decoration: none;
+}
+.item a:hover .h {
+  color: rgb(141, 101, 2);
+  text-decoration: none;
+}

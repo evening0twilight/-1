@@ -1,0 +1,57 @@
+/* 滚动的大盒子 */
+.roll {
+  /* 100%窗口高度 */
+  margin-top: 40px;
+  width: 100%;
+  height: 90vh;
+  /* 弹性布局 居中显示 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* float: left; */
+  overflow: hidden;
+  position: relative;
+}
+/* 间距 */
+#space2 {
+  margin-left: 40px;
+}
+#space2 h1 {
+  left: 650px;
+}
+#space2 h2 {
+  left: 695px;
+}
+/* 滚动条 */
+.roll-container {
+  width: 100%;
+  position: absolute;
+}
+/* 第一个滚动条 */
+#container1 {
+  top: 40px;
+}
+/* 第二个滚动条 */
+#container2 {
+  top: 350px;
+}
+.roll ul {
+  width: 100%;
+  height: 250px;
+  display: flex;
+  position: absolute;
+}
+.roll li {
+  list-style: none;
+  height: 100%;
+  padding-right: 20px;
+  margin-left: 20px;
+}
+.roll li img {
+  width: 500px;
+  height: 220px;
+  /* 保持原有尺寸比例，裁切长边 */
+  object-fit: cover;
+  /* 图片定位正中间 */
+  object-position: center;
+}

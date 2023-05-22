@@ -1,0 +1,192 @@
+* {
+  /* padding和border的值就不会在影响元素的宽高 */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "STKAITI";
+  /* 文字不可选中 */
+  -webkit-user-select: none; /* Chrome / Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none;
+}
+ul {
+  list-style: none;
+}
+
+/* 导航 */
+header {
+  font-size: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.6s;
+  padding: 40px 100px;
+  z-index: 1000;
+}
+/* headerd的激活状态 */
+header.sticky {
+  padding: 5px 100px;
+  /* color: rgb(214, 154, 75); */
+  background: rgb(255, 255, 255);
+}
+header .logo {
+  position: relative;
+  font-weight: 700;
+  /* color: rgb(214, 154, 75); */
+  color: #fff;
+  text-decoration: none;
+  font-size: 2em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: 0.6s;
+}
+header ul {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header ul li {
+  position: relative;
+  list-style: none;
+}
+header .header-first {
+  color: rgb(214, 154, 75);
+}
+header ul li a {
+  position: relative;
+  margin: 0 15px;
+  color: #fff;
+  letter-spacing: 2px;
+  font-weight: 5em;
+  transition: all 0.6s;
+  font-size: 1em;
+}
+header .header-else:hover {
+  color: rgb(214, 154, 75);
+}
+@keyframes waverun {
+  0% {
+    color: rgb(239, 208, 131);
+  }
+  100% {
+    color: rgb(214, 154, 75);
+  }
+}
+header.sticky .logo,
+header.sticky ul li a {
+  color: rgb(86, 85, 85);
+}
+header.sticky .header-first {
+  color: rgb(214, 154, 75);
+}
+/* 视频 */
+h1 {
+  font-size: 32px;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+h2 {
+  font-size: 20px;
+  font-weight: 200;
+}
+a {
+  text-decoration: none;
+}
+html {
+  /* 平滑滚动 */
+  scroll-behavior: smooth;
+}
+/* 最外面的盒子 */
+.showcase {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+/* 视频盒子 */
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(../images/cover.png) no-repeat center center/115% auto;
+  z-index: -1;
+  overflow: hidden;
+}
+.video-container video {
+  /* min-width: 100%;
+  min-height: 100%; */
+  max-width: 120%;
+  max-height: 122%;
+  object-fit: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* 首页打字特效 */
+.text {
+  /* 相对定位 */
+  font-family: "STKAITI";
+  left: 80px;
+  position: relative;
+  color: #fff;
+  font-size: 40px;
+  /* 字间距 */
+  letter-spacing: 5px; /* 单个字宽度 */
+  width: 45px;
+  /* 不换行 */
+  white-space: nowrap; /* 溢出隐藏 */
+  overflow: hidden; /*
+自定义属性(变量),通过var函数进行调用,这里用来记录字数(6个字,根据你的实际字数而定)
+*/
+  --count: 8; /* 执行动画: 动画名 时长 分步过渡(这里分6步) 停留在最后一帧 */ /*
+时长要根据字数而定,字数多的话要适当延长 */
+  animation: typing 1.8s steps(var(--count)) forwards; /* 加个倒影可能会比较好看 */
+  /* -webkit-box-reflect: below 1px
+    linear-gradient(transparent 30%, rgba(0, 0, 0, 0.05)); */
+} /* 光标 */
+.text::after {
+  content: "";
+  width: 2px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #fff;
+  /* 执行光标动画: 动画名 时长 线性的 无限次播放*/
+  animation: blink 1s linear infinite;
+}
+/* 定义动画 */
+/* 光标闪烁 */
+@keyframes blink {
+  0%,
+  49% {
+    opacity: 0;
+  }
+  50%,
+  100% {
+    opacity: 1;
+  }
+} /* 打字动画
+*/
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  100% {
+    /*计算字全部显示完的宽度,65px表示单个字宽度 */
+    width: calc(var(--count) * 45px);
+  }
+}

@@ -1,0 +1,89 @@
+* {
+  /* 文字不可选中 */
+  -webkit-user-select: none; /* Chrome / Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none;
+}
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+#wrap {
+  width: 100%;
+  position: relative;
+}
+#wrapinner {
+  z-index: 9999;
+  width: 100%;
+  color: rgb(53, 78, 27);
+}
+#nav {
+  z-index: 9999;
+  position: fixed;
+  right: 0.8vw;
+  bottom: 8vw;
+}
+#nav li {
+  width: 50px;
+  height: 50px;
+  line-height: 32px;
+  text-align: center;
+  color: rgb(53, 78, 27);
+  margin-bottom: 10px;
+  /* background: url("images/side-nav-bg.jpg") no-repeat; */
+  cursor: pointer;
+  transition: all 0.2s ease;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+}
+#nav .iconfont {
+  font-size: 2vw;
+}
+#nav li.on {
+  color: rgb(214, 154, 75);
+}
+#nav .flyborder {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+#nav .flyborder::after {
+  position: absolute;
+  content: "";
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgb(239, 208, 131);
+  left: 3px;
+  top: 15px;
+  /* bottom: 0px; */
+  border-width: 0 0 2px 2px;
+  opacity: 0;
+  transition: 0.5s;
+}
+#nav .flyborder::before {
+  position: absolute;
+  content: "";
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgb(239, 208, 131);
+  top: -5px;
+  right: 3px;
+  border-width: 2px 2px 0 0;
+  opacity: 0;
+  transition: 0.5s;
+}
+#nav .flyborder:hover::after {
+  /* 手型鼠标 */
+  cursor: pointer;
+  left: 0px;
+  top: 20px;
+  opacity: 1;
+}
+#nav .flyborder:hover::before {
+  /* 手型鼠标 */
+  cursor: pointer;
+  top: -8px;
+  right: -2px;
+  opacity: 1;
+}

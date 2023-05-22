@@ -1,0 +1,263 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "STKAITI";
+  /* 文字不可选中 */
+  -webkit-user-select: none; /* Chrome / Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none;
+}
+
+body {
+  background-image: url("../images/bg.jpg");
+  background-size: contain;
+  overflow-x: hidden;
+}
+/* 图片*/
+.shell img {
+  width: 100%;
+  height: 100%;
+  /* vertical-align: middle; */
+  display: inline-block;
+  object-fit: cover;
+  transition: all 0.6s;
+}
+.shell img:hover {
+  cursor: zoom-in;
+  transform: scale(1.2);
+}
+
+/* 点击放大 */
+.wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-color: rgba(52, 52, 52, 0.8);
+  background-size: 43%;
+}
+.wrapper:hover {
+  cursor: zoom-out;
+}
+.shell {
+  display: grid;
+  /* 网格布局 */
+  padding: 20px 80px;
+  grid-gap: 26px;
+  /* 用来设置网格行之间的间隙。 */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  /* 设置列和行的尺寸。 */
+  grid-auto-rows: 250px;
+  /* 指定行的自动尺寸 */
+  grid-auto-flow: dense;
+  /* 指定自动布局算法怎样运作，多的格子空白填充。 */
+}
+.shell div {
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.shell .wide {
+  grid-column: span 2;
+  /* grid-column表示列 grid-row表示行 span表示跨域多少个网格。 */
+}
+
+.shell .tall {
+  grid-row: span 2;
+}
+
+.shell .big {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+/* 标题 */
+.top {
+  width: 100vw;
+  height: 20vh;
+  font-family: "STKAITI";
+  letter-spacing: 30px;
+  text-align: center;
+  color: rgb(214, 154, 75);
+  text-shadow: 8px 0 8px rgb(239, 208, 131);
+}
+.top h2 {
+  font-size: 8vw;
+  padding: 1vw 0vw;
+}
+
+/* 返回键 */
+/* .fan {
+        position: absolute;
+        z-index: 999;
+        padding: 10px;
+      }
+      .icon-fanhui {
+        color: rgb(214, 154, 75);
+        font-size: 5vw;
+      }
+      .fan a {
+        text-decoration: none;
+      }
+      .fan i:hover {
+        text-shadow: 8px 0 8px rgb(239, 208, 131);
+      } */
+
+/* 视频播放 */
+.container {
+  max-width: 1390px;
+  margin: 30px auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 20px;
+}
+.container .main-video-container {
+  flex: 1 1 850px;
+  /* 规定项目将相对于其他灵活的项目进行扩展的量。收缩的量。项目的长度。 */
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  background-color: rgb(232, 232, 232);
+  padding: 15px;
+}
+
+.container .main-video-container .main-video {
+  margin-bottom: 7px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.container .main-video-container .main-vid-title {
+  font-size: 20px;
+  color: #444;
+}
+
+.container .video-list-container {
+  flex: 1 1 300px;
+  height: 592px;
+  overflow-y: scroll;
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  background-color: rgb(232, 232, 232);
+  padding: 15px;
+}
+
+.container .video-list-container::-webkit-scrollbar {
+  width: 10px;
+}
+/* ::-webkit-scrollbar——整个滚动条。 */
+.container .video-list-container::-webkit-scrollbar-track {
+  background-color: #fff;
+  border-radius: 5px;
+}
+/* ::-webkit-scrollbar-track——滚动条轨道。 */
+.container .video-list-container::-webkit-scrollbar-thumb {
+  background-color: #444;
+  border-radius: 5px;
+}
+/* ::-webkit-scrollbar-thumb——滚动条上的滚动滑块。 */
+.container .video-list-container .list {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  /* 设置网格行与列之间的间隙： */
+  padding: 15px;
+  background-color: #eee;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.container .video-list-container .list:last-child {
+  margin-bottom: 0;
+}
+
+.container .video-list-container .list.active {
+  background-color: #444;
+}
+
+.container .video-list-container .list.active .list-title {
+  color: #fff;
+}
+
+.container .video-list-container .list .list-video {
+  width: 120px;
+  border-radius: 5px;
+}
+
+.container .video-list-container .list .list-title {
+  font-size: 17px;
+  color: #444;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    margin: auto;
+  }
+}
+
+@media (max-width: 450px) {
+  .container .main-video-container .main-vid-title {
+    font-size: 15px;
+    text-align: center;
+  }
+
+  .container .video-list-container .list {
+    flex-flow: column;
+    gap: 10px;
+  }
+
+  .container .video-list-container .list .list-video {
+    width: 100%;
+  }
+
+  .container .video-list-container .list .list-title {
+    font-size: 15px;
+    text-align: center;
+  }
+}
+.breadcrumb {
+  margin: 10px 30px;
+}
+.space1 {
+  width: 100vw;
+  height: 65px;
+  display: block;
+  text-align: center;
+  font-size: 26px;
+  /* color: #474747; */
+  /* line-height: 1.2; */
+  position: relative;
+  margin: 50px 0px;
+}
+.space1 h1 {
+  position: absolute;
+  left: 44vw;
+  top: 15px;
+  /* line-height: 1.2; */
+  color: rgb(214, 154, 75);
+}
+.s1,
+.s2 {
+  position: absolute;
+  display: block;
+  width: 483px;
+  /* width: 32vw; */
+  height: 100%;
+  top: 10px;
+}
+.s1 {
+  left: 6vw;
+  background: url(../images/spaceleft1.png) no-repeat right center;
+}
+.s2 {
+  right: 6vw;
+  background: url(../images/spaceright.png) no-repeat right center;
+}
